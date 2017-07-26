@@ -2,13 +2,29 @@ body {
     background-image: url('../img/fastfood.jpg');
     background-repeat: repeat;
     background-attachment: fixed;
+    background-size: 65%;
     text-align: center;
     font-family: 'Contrail One', cursive;
+    font-size: 25px;
+    text-shadow: 2px 2px pink;
+}
+
+h2{
+  text-shadow: 3px 3px gray;
 }
 
 h1 {
+    background-image: url(../img/bite.png);
+    background-repeat: no-repeat;
+    background-size: 45%;
     font-family: 'Carter One', cursive;
-    font-size: 70px;
+    height: 220px;
+    margin-left: 33%;
+    margin-top: 0px;
+    background-position: center;
+    width: 512px;
+    padding-top: 123px;
+    font-size: 67px;
     color: cadetblue;
     text-shadow: 6px 6px pink;
 }
@@ -18,17 +34,37 @@ ul {
     padding: 0px;
 }
 
+input{
+  height:30px;
+  border-radius: 5px;
+  border:4px groove pink;
+  font-family: 'Contrail One', cursive;
+  font-size: 25px;
+  color: grey;
+}
+
+button {
+    background-color: cadetblue;
+    border: 2px solid black;
+    font-family: 'Contrail One', cursive;
+    font-size: 20px;
+    margin: 1px;
+    padding: 1px;
+    color: yellow;
+    box-shadow: 3px 3px 3px #000;
+}
+
 .nybe {
     display: inline-block;
     background: transparent;
     background-image: url('../img/eatenBurger.png');
-    background-size: 140px;
+    background-size: 190px;
     background-repeat: no-repeat;
     padding: 20px;
     list-style: none;
     margin: 0px;
-    width: 100px;
-    height: 100px;
+    width: 153px;
+    height: 190px;
     color: white;
 }
 
@@ -37,13 +73,13 @@ ul {
     margin-top: 100px;
     background: transparent;
     background-image: url('../img/burger.png');
-    background-size: 140px;
+    background-size: 190px;
     background-repeat: no-repeat;
     padding: 20px;
     list-style: none;
     margin: 0px;
-    width: 100px;
-    height: 100px;
+    width: 153px;
+    height: 190px;
     color: white;
 }
 
@@ -52,22 +88,35 @@ ul {
 }
 
 form.create-update-form {
-    background-color: burlywood;
+    background-color: cadetblue;;
 }
 
 .create-update-form {
-    padding: 5px;
+    padding: 20px;
     border: 3px solid black;
     margin: 5px;
-    background-color: #f6bbf7;
     font-size: 35px;
     background: white;
     display: inline-block;
     width: 232px;
-        box-shadow: 10px 10px 5px #888888;
-        margin-bottom: 45px;
+    box-shadow: 10px 10px 5px #888888;
+    margin-bottom: 45px;
 }
 
 .form-group {
     margin-bottom: 5px;
+}
+
+@keyframes flash {
+  from, 50%, to {
+    opacity: 1;
+  }
+
+  25%, 75% {
+    opacity: 0;
+  }
+}
+
+.flash {
+  animation-name: flash;
 }

@@ -1,35 +1,9 @@
-// Import MySQL connection.
 const connection = require("../config/connection.js");
 
-// Helper function for SQL syntax.
-function printQuestionMarks(num) {
-    var arr = [];
-
-    for (var i = 0; i < num; i++) {
-        arr.push("?");
-    }
-
-    return arr.toString();
-}
-
-// Helper function for SQL syntax.
-function objToSql(ob) {
-    var arr = [];
-
-    for (var key in ob) {
-        if (Object.hasOwnProperty.call(ob, key)) {
-            arr.push(key + "=" + ob[key]);
-        }
-    }
-
-    return arr.toString();
-}
-
-// Object for all our SQL statement functions.
 var orm = {
     selectAll: function(tableInput, cb) {
-        var queryString = "SELECT * FROM " + tableInput + ";";
-        connection.query(queryString, function(err, result) {
+        var string = "SELECT * FROM " + tableInput + ";";
+        connection.query(string, function(err, result) {
             if (err) {
                 throw err;
             }
@@ -38,11 +12,11 @@ var orm = {
     },
 
     insertOne: function(table, cols, vals, cb) {
-        var queryString = "INSERT INTO ?? (??) VALUES (" + printQuestionMarks(vals.length) + ");";
+        var string = "INSERT INTO ?? (??) VALUES (" + qMark(vals.length) + ");";
 
-        console.log(queryString);
+        console.log(string);
 
-        connection.query(queryString, [table, cols, vals], function(err, result) {
+        connection.query(string, [table, cols, vals], function(err, result) {
             if (err) {
                 throw err;
             }
@@ -50,12 +24,11 @@ var orm = {
         });
     },
 
-    // An example of objColVals would be {name: panther, sleepy: true}
     updateOne: function(table, objColVals, condition, cb) {
-        var queryString = "UPDATE ?? SET " + objToSql(objColVals) + " WHERE id=?;";
+        var string = "UPDATE ?? SET " + sendInfo(objColVals) + " WHERE id=?;";
 
-        console.log(queryString);
-        connection.query(queryString, [table, condition], function(err, result) {
+        console.log(string);
+        connection.query(string, [table, condition], function(err, result) {
             if (err) {
                 throw err;
             }
@@ -63,7 +36,6 @@ var orm = {
         });
     },
 
-    // REMOVE
     remove: function(table, condition, cb) {
 
         let query = "DELETE FROM ?? WHERE id=?";
@@ -76,5 +48,27 @@ var orm = {
     }
 };
 
-// Export the orm object for the model (burger.js).
+
+function qMark(num) {
+    var arr = [];
+
+    for (var i = 0; i < num; i++) {
+        arr.push("?");
+    }
+
+    return arr.toString();
+}
+
+function sendInfo(ob) {
+    var arr = [];
+
+    for (var key in ob) {
+        if (Object.hasOwnProperty.call(ob, key)) {
+            arr.push(key + "=" + ob[key]);
+        }
+    }
+
+    return arr.toString();
+}
+
 module.exports = orm;

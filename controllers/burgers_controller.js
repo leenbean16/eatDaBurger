@@ -6,15 +6,14 @@ var burger = require("../models/burger.js");
 
 router.get("/", function(req, res) {
     burger.all(function(data) {
-        var hbsObject = {
+        var hObject = {
             burgers: data
         };
-        console.log(hbsObject);
-        res.render("index", hbsObject);
+        console.log(hObject);
+        res.render("index", hObject);
     });
 });
 
-// CREATE
 router.post("/", function(req, res) {
     console.log(req.body);
     burger.create(["burger_name"], [req.body.burger_name], function() {
@@ -22,7 +21,6 @@ router.post("/", function(req, res) {
     });
 });
 
-// Eat burger (UPDATE)
 router.put("/:id", function(req, res) {
     var condition = req.params.id;
     console.log("Devoured:", req.body.devoured);
@@ -35,7 +33,6 @@ router.put("/:id", function(req, res) {
     });
 });
 
-// DELETE
 router.delete("/:id", function(req, res) {
     let condition = req.params.id;
     burger.remove(condition, function() {
@@ -44,5 +41,4 @@ router.delete("/:id", function(req, res) {
     })
 });
 
-// Export routes for server.js to use.
 module.exports = router;
