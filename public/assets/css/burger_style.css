@@ -1,0 +1,73 @@
+body {
+    background-image: url('../img/fastfood.jpg');
+    background-repeat: repeat;
+    background-attachment: fixed;
+    text-align: center;
+    font-family: 'Contrail One', cursive;
+}
+
+h1 {
+    font-family: 'Carter One', cursive;
+    font-size: 70px;
+    color: cadetblue;
+    text-shadow: 6px 6px pink;
+}
+
+ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+.nybe {
+    display: inline-block;
+    background: transparent;
+    background-image: url('../img/eatenBurger.png');
+    background-size: 140px;
+    background-repeat: no-repeat;
+    padding: 20px;
+    list-style: none;
+    margin: 0px;
+    width: 100px;
+    height: 100px;
+    color: white;
+}
+
+.abd {
+    display: inline-block;
+    margin-top: 100px;
+    background: transparent;
+    background-image: url('../img/burger.png');
+    background-size: 140px;
+    background-repeat: no-repeat;
+    padding: 20px;
+    list-style: none;
+    margin: 0px;
+    width: 100px;
+    height: 100px;
+    color: white;
+}
+
+.label {
+    font-weight: bold;
+}
+
+form.create-update-form {
+    background-color: burlywood;
+}
+
+.create-update-form {
+    padding: 5px;
+    border: 3px solid black;
+    margin: 5px;
+    background-color: #f6bbf7;
+    font-size: 35px;
+    background: white;
+    display: inline-block;
+    width: 232px;
+        box-shadow: 10px 10px 5px #888888;
+        margin-bottom: 45px;
+}
+
+.form-group {
+    margin-bottom: 5px;
+}
